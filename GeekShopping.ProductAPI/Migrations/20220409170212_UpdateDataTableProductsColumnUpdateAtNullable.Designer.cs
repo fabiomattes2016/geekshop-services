@@ -3,6 +3,7 @@ using System;
 using GeekShopping.ProductAPI.Model.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeekShopping.ProductAPI.Migrations
 {
     [DbContext(typeof(MySqlContext))]
-    partial class MySqlContextModelSnapshot : ModelSnapshot
+    [Migration("20220409170212_UpdateDataTableProductsColumnUpdateAtNullable")]
+    partial class UpdateDataTableProductsColumnUpdateAtNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,28 +67,6 @@ namespace GeekShopping.ProductAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 3L,
-                            CategoryName = "camisetas",
-                            CreatedAt = new DateTime(2022, 4, 9, 14, 36, 18, 388, DateTimeKind.Local).AddTicks(6244),
-                            Description = "Foram essas as palavras que tornaram o mago cinza imortalizado, pegando toda a experiência da vitória para si, subindo de classe e virando o poderoso mago branco. Enfrentar um chefe de alto nível sozinho pode te render um desafio mortal, mas a vitória te faz ficar alguns níveis a frente de seu grupo.",
-                            ImageUrl = "https://cdn.nerdstore.com.br/wp-content/uploads/2021/03/camiseta-you-shall-not-pass-01.jpg",
-                            Name = "Camiseta You Shall Not Pass",
-                            Price = 50m
-                        },
-                        new
-                        {
-                            Id = 4L,
-                            CategoryName = "camisetas",
-                            CreatedAt = new DateTime(2022, 4, 9, 14, 36, 18, 388, DateTimeKind.Local).AddTicks(6263),
-                            Description = "A Árvore de Gondor representa a paz e prosperidade dos Homens, as estrelas se referem aos sete barcos dos Homens de Númenor que traziam as Palantír, cada um com o desenho de uma estrela.Sua estampa favorita,  agora na sua versão black edition, em uma super camiseta pronta para desbravar a Terra Média!",
-                            ImageUrl = "https://cdn.nerdstore.com.br/wp-content/uploads/2022/04/vitrine-camiseta-arvore-de-gondor-black-edition-01-nerdstore.jpg",
-                            Name = "Camiseta Árvore de Gondor – Black Edition",
-                            Price = 79.9m
-                        });
                 });
 #pragma warning restore 612, 618
         }
